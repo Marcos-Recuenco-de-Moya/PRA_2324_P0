@@ -1,0 +1,24 @@
+.SUFFIXES: .cpp .h .o
+.cpp.o: ; g++ -c $*.cpp
+
+all: app1 app2
+
+helloPRA.o: helloPRA.cpp helloPRA.h
+
+app1.o: app1.cpp helloPRA.h
+
+app2.o: app2.cpp helloPRA.h
+
+app1: app1.o helloPRA.o
+        g++ -o app1 app1.o helloPRA.o
+
+app2: app2.o helloPRA.o
+        g++ -o app2 app2.o helloPRA.o
+
+clean:
+
+        rm -f *.o app1 app2
+
+test: all
+        ./app1
+        ./app2
