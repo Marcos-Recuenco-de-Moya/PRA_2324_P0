@@ -1,4 +1,4 @@
-#include <BrazoRobotico.h>
+#include "BrazoRobotico.h"
 
 BrazoRobotico::BrazoRobotico(double X, double Y, double Z, bool sujeto){
 	x = X;
@@ -22,17 +22,17 @@ bool BrazoRobotico::getSujetando(){
 	return sujetando;
 }
 
-void coger(){
+void BrazoRobotico::coger(){
 	sujetando = true;
-	printf("Objeto cogido con éxito\n");
+	printf("Objeto cogido con éxito.\n");
 }
 
-void soltar(){
+void BrazoRobotico::soltar(){
 	sujetando = false;
-	printf("Objeto soltado con éxito\n");
+	printf("Objeto soltado con éxito.\n");
 }
 
-void mover(double X, double Y, double Z){
+void BrazoRobotico::mover(double X, double Y, double Z){
 	x = X;
 	y = Y;
 	z = Z;
